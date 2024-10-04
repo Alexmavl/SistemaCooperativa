@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SistemaCooperativa.Models.Persona>
+
+<h2>Listado de Personas</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Crear Nueva Persona</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Tipo Persona</th>
+            <th>Estatus</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Apellido</td>
+                <td>@item.Direccion</td>
+                <td>@item.Telefono</td>
+                <td>@item.Email</td>
+                <td>@item.TipoPersona.Descripcion</td>
+                <td>@item.Estatus.Descripcion</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.IdPersona })">Editar</a> |
+                    <a href="@Url.Action("Details", new { id = item.IdPersona })">Detalles</a> |
+                    <a href="@Url.Action("Delete", new { id = item.IdPersona })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

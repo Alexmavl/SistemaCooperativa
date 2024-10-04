@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SistemaCooperativa.Models.TipoPersona>
+
+@{
+    ViewData["Title"] = "Tipos de Persona";
+}
+
+<h1>Tipos de Persona</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoPersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTipoPersona)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdTipoPersona">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdTipoPersona">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdTipoPersona">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
